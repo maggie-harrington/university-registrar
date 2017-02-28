@@ -73,7 +73,7 @@
           $course_name_update = "General Chemistry Term 1";
 
           // Act
-          $test_course->setName($course_name_update);
+          $test_course->setCourseName($course_name_update);
           $result = $test_course->getCourseName();
 
           // Assert

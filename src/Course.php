@@ -26,5 +26,10 @@
         {
             return $this->id;
         }
+
+        function setCourseName($new_course_name)
+        {
+            $this->course_name = $new_course_name;
+        }
     }
 ?>
