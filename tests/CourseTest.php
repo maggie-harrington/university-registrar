@@ -47,5 +47,21 @@
             $this->assertEquals($course_number, $result);
         }
 
+        function test_getId()
+        {
+          // Arrange
+          $course_name = "General Chemistry";
+          $course_number = "CH 201";
+          $id = 1;
+          $test_course = new Course($course_name, $course_number, $id);
+
+          // Act
+          $result = $test_course->getId();
+
+          // Assert
+          $this->assertEquals($id, $result);
+        }
+
+
     }
 ?>
