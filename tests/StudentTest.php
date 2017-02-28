@@ -79,5 +79,24 @@
           $this->assertEquals($name_update, $result);
         }
 
+        function test_setEnrollmentDate()
+        {
+          // Arrange
+          $name = "Maggie";
+          $enrollment_date = "2017-02-28";
+          $id = 1;
+          $test_student = new Student($name, $enrollment_date, $id);
+
+          $enrollment_date_update = "2017-02-27";
+
+          // Act
+          $test_student->setEnrollmentDate($enrollment_date_update);
+          $result = $test_student->getEnrollmentDate();
+
+          // Assert
+          $this->assertEquals($enrollment_date_update, $result);
+        }
+
+
     }
 ?>
