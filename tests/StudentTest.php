@@ -163,18 +163,16 @@
             // Arrange
             $name = "Maggie";
             $enrollment_date = "2017-02-28";
-            $id = 1;
-            $test_student = new Student($name, $enrollment_date, $id);
+            $test_student = new Student($name, $enrollment_date);
             $test_student->save();
 
             $name2 = "Daisy";
             $enrollment_date2 = "2017-03-01";
-            $id2 = 2;
-            $test_student2 = new Student($name2, $enrollment_date2, $id2);
+            $test_student2 = new Student($name2, $enrollment_date2);
             $test_student2->save();
 
             // Act
-            $result = Student::find($id);
+            $result = Student::find($test_student->getId());
 
             // Assert
             $this->assertEquals($test_student, $result);
