@@ -37,5 +37,10 @@
             $this->enrollment_date = $new_enrollment_date;
         }
 
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO students (name, enrollment_date) VALUES ('{$this->getName()}', '{$this->getEnrollmentDate()}');");
+        }
+
     }
 ?>
