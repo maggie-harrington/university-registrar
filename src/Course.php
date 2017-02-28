@@ -16,5 +16,10 @@
         {
             return $this->course_name;
         }
+
+        function getCourseNumber()
+        {
+            return $this->course_number;
+        }
     }
 ?>
