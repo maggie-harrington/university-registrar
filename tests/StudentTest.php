@@ -17,6 +17,7 @@
             Student::deleteAll();
             // Course::deleteAll();
         }
+        
         function test_getName()
         {
           // Arrange
