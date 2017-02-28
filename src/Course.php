@@ -21,5 +21,10 @@
         {
             return $this->course_number;
         }
+
+        function getId()
+        {
+            return $this->id;
+        }
     }
 ?>
