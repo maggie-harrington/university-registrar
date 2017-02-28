@@ -146,7 +146,7 @@
 
             $name2 = "Daisy";
             $enrollment_date2 = "2017-03-01";
-            $id = 2;
+            $id2 = 2;
             $test_student2 = new Student($name2, $enrollment_date2, $id2);
             $test_student2->save();
 
