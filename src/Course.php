@@ -37,5 +37,10 @@
             $this->course_number = $new_course_number;
         }
 
+        function save()
+        {
+            $GLOBALS['DB']->exec("INSERT INTO courses (course_name, course_number) VALUES ('{$this->getCourseName()}', '{$this->getCourseNumber()}');");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
     }
 ?>
