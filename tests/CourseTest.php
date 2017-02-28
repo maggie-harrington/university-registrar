@@ -179,6 +179,27 @@
             $this->assertEquals($test_course, $result);
         }
 
+        function test_delete()
+        {
+            // Arrange
+            $course_name = "General Chemistry";
+            $course_number = "CH 201";
+            $test_course = new Course($course_name, $course_number);
+            $test_course->save();
+
+            $course_name2 = "General Biology";
+            $course_number2 = "BI 201";
+            $test_course2 = new Course($course_name2, $course_number2);
+            $test_course2->save();
+
+            // Act
+            $test_course->delete();
+            $result = Course::getAll();
+
+            // Assert
+            $this->assertEquals([$test_course2], $result);
+        }
+
 
     }
 ?>
