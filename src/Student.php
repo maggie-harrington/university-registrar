@@ -81,5 +81,12 @@
             $GLOBALS['DB']->exec("DELETE FROM students WHERE id = {$this->getId()};");
         }
 
+        function update($new_name, $new_enrollment_date)
+        {
+            $GLOBALS['DB']->exec("UPDATE students SET name = '{$new_name}', enrollment_date = '{$new_enrollment_date}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+            $this->setEnrollmentDate($new_enrollment_date);
+        }
+
     }
 ?>
