@@ -45,7 +45,7 @@
             // Assert
             $this->assertEquals($enrollment_date, $result);
         }
-        
+
         function test_getId()
         {
           // Arrange
@@ -59,6 +59,24 @@
 
           // Assert
           $this->assertEquals($id, $result);
+        }
+
+        function test_setName()
+        {
+          // Arrange
+          $name = "Maggie";
+          $enrollment_date = "2017-02-28";
+          $id = 1;
+          $test_student = new Student($name, $enrollment_date, $id);
+
+          $name_update = "Maggie Harrington";
+
+          // Act
+          $test_student->setName($name_update);
+          $result = $test_student->getName();
+
+          // Assert
+          $this->assertEquals($name_update, $result);
         }
 
     }
