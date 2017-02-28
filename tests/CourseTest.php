@@ -200,6 +200,26 @@
             $this->assertEquals([$test_course2], $result);
         }
 
+        function test_update()
+        {
+            // Arrange
+            $course_name = "General Chemistry";
+            $course_number = "CH 201";
+            $test_course = new Course($course_name, $course_number);
+            $test_course->save();
+
+            $course_name_update = "Maggie Harrington";
+            $course_number_update = "BI 201";
+
+            // Act
+            $test_course->update($course_name_update, $course_number_update);
+            $result_course_name = $test_course->getCourseName();
+            $result_course_number = $test_course->getCourseNumber();
+
+            // Assert
+            $this->assertEquals($course_name_update, $result_course_name);
+            $this->assertEquals($course_number_update, $result_course_number);
+        }
 
     }
 ?>
