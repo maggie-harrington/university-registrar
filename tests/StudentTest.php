@@ -199,5 +199,26 @@
             $this->assertEquals([$test_student2], $result);
         }
 
+        function test_update()
+        {
+            // Arrange
+            $name = "Maggie";
+            $enrollment_date = "2017-02-28";
+            $test_student = new Student($name, $enrollment_date);
+            $test_student->save();
+
+            $name_update = "Maggie Harrington";
+            $enrollment_date_update = "2017-03-01";
+
+            // Act
+            $test_student->update($name_update, $enrollment_date_update);
+            $result_name = $test_student->getName();
+            $result_enrollment_date = $test_student->getEnrollmentDate();
+
+            // Assert
+            $this->assertEquals($name_update, $result_name);
+            $this->assertEquals($enrollment_date_update, $result_enrollment_date);
+        }
+
     }
 ?>
