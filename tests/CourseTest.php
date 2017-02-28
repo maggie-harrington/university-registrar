@@ -98,6 +98,68 @@
           $this->assertEquals($course_number_update, $result);
         }
 
+        function test_save()
+        {
+            // Arrange
+            $course_name = "General Chemistry";
+            $course_number = "CH 201";
+            $id = 1;
+            $test_course = new Course($course_name, $course_number, $id);
+
+            // Act
+            $test_course->save();
+            $result = Course::getAll();
+
+            // Assert
+            $this->assertEquals([$test_course], $result);
+        }
+
+        function test_getAll()
+        {
+            // Arrange
+            $course_name = "General Chemistry";
+            $course_number = "CH 201";
+            $id = 1;
+            $test_course = new Course($course_name, $course_number, $id);
+            $test_course->save();
+
+            $course_name2 = "General Biology";
+            $course_number2 = "BI 201";
+            $id2 = 2;
+            $test_course2 = new Course($course_name2, $course_number2, $id2);
+            $test_course2->save();
+
+            // Act
+            $result = Course::getAll();
+
+            // Assert
+            $this->assertEquals([$test_course, $test_course2], $result);
+        }
+
+        function test_deleteAll()
+        {
+            // Arrange
+            $course_name = "General Chemistry";
+            $course_number = "CH 201";
+            $id = 1;
+            $test_course = new Course($course_name, $course_number, $id);
+            $test_course->save();
+
+            $course_name2 = "General Biology";
+            $course_number2 = "BI 201";
+            $id2 = 2;
+            $test_course2 = new Course($course_name2, $course_number2, $id2);
+            $test_course2->save();
+
+            // Act
+            Course::deleteAll();
+            $result = Course::getAll();
+
+            // Assert
+            $this->assertEquals([], $result);
+        }
+
+
 
     }
 ?>

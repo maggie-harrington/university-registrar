@@ -36,5 +36,6 @@
         {
             $this->course_number = $new_course_number;
         }
+
     }
 ?>
