@@ -64,9 +64,11 @@ Copyright (c) 2017 Maggie Harrington
 
 5. Create students page to list all students at the university, including a form to add new students.
 
-6. Create Course class with construct, create and test getters & setters.
+6. Add edit and delete buttons to students page, with a new page for the edit form.
 
-7. Create tests and methods for the following Course functions:
+7. Create Course class with construct, create and test getters & setters.
+
+8. Create tests and methods for the following Course functions:
     * save
     * getAll
     * deleteAll
@@ -74,20 +76,18 @@ Copyright (c) 2017 Maggie Harrington
     * update - single instance
     * delete - single instance
 
-8. Construct and test a method to return all of a student's courses
+9. Construct and test a method to return all of a student's courses
 
-9. Write Silex routes for Course in app.php after all tests pass.
+10. Write Silex routes for Course in app.php after all tests pass.
 
-10. Create courses page to display all courses at the university, including a form to add new courses.
+11. Create courses page to display all courses at the university, including a form to add new courses.
 
-11. Construct and test a method to assign students to a course.
+12. Add edit and delete buttons to courses page, with a new page for the edit form.
 
-12. Write Silex routes for assigning students to a course in app.php after all tests pass.
+13. Construct and test a method to assign students to a course.
 
-13. Create an enroll student page to allow registrar to select a course and assign students to that course.
+14. Write Silex routes for assigning students to a course in app.php after all tests pass.
 
-14. Add edit and delete buttons to students page, with a new page for the edit form.
-
-15. Add edit and delete buttons to courses page, with a new page for the edit form.
+15. Create an enroll student page to allow registrar to select a course and assign students to that course.
 
 16. Export `university_registrar` and `university_registrar_test` databases to include in project folder.
