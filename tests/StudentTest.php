@@ -122,10 +122,10 @@
             $test_student = new Student($name, $enrollment_date, $id);
             $test_student->save();
 
-            $name = "Daisy";
-            $enrollment_date = "2017-03-01";
-            $id = 2;
-            $test_student2 = new Student($name, $enrollment_date, $id);
+            $name2 = "Daisy";
+            $enrollment_date2 = "2017-03-01";
+            $id2 = 2;
+            $test_student2 = new Student($name2, $enrollment_date2, $id2);
             $test_student2->save();
 
             // Act
@@ -144,10 +144,10 @@
             $test_student = new Student($name, $enrollment_date, $id);
             $test_student->save();
 
-            $name = "Daisy";
-            $enrollment_date = "2017-03-01";
+            $name2 = "Daisy";
+            $enrollment_date2 = "2017-03-01";
             $id = 2;
-            $test_student2 = new Student($name, $enrollment_date, $id);
+            $test_student2 = new Student($name2, $enrollment_date2, $id2);
             $test_student2->save();
 
             // Act

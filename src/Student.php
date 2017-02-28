@@ -57,5 +57,10 @@
             return $all_students_array;
         }
 
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM students");
+        }
+
     }
 ?>
