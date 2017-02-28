@@ -76,18 +76,25 @@ Copyright (c) 2017 Maggie Harrington
     * update - single instance
     * delete - single instance
 
-9. Construct and test a method to return all of a student's courses
 
-10. Write Silex routes for Course in app.php after all tests pass.
+9. Write Silex routes for Course in app.php after all tests pass.
 
-11. Create courses page to display all courses at the university, including a form to add new courses.
+10. Create courses page to display all courses at the university, including a form to add new courses.
 
-12. Add edit and delete buttons to courses page, with a new page for the edit form.
+11. Add edit and delete buttons to courses page, with a new page for the edit form.
 
-13. Construct and test a method to assign students to a course.
+12. Create students_courses join table.
 
-14. Write Silex routes for assigning students to a course in app.php after all tests pass.
+13. Construct and test methods to assign students to a course, and return all students in a course.
+
+14. Write Silex routes for assigning students to a course and returning all students in a course in app.php after all tests pass.
 
 15. Create an enroll student page to allow registrar to select a course and assign students to that course.
 
-16. Export `university_registrar` and `university_registrar_test` databases to include in project folder.
+16. Construct and test a method to return all of a student's courses.
+
+17. Write Silex route for return all of a student's courses in app.php after all tests pass.
+
+18. Alter student edit page to display all of a student's courses.
+
+19. Export `university_registrar` and `university_registrar_test` databases to include in project folder.
