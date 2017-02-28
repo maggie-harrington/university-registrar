@@ -62,8 +62,9 @@
     // submit edit to a student, routes back to students page from student edit page
     $app->patch("/students/{id}/submit_edit", function($id) use ($app) {
         $name = $_POST['name'];
+        $enrollment_date = $_POST['enrollment_date'];
         $student = Student::find($id);
-        $student->update($name);
+        $student->update($name, $enrollment_date);
 
         return $app['twig']->render('students.html.twig', array('students' => Student::getAll()));
     });
