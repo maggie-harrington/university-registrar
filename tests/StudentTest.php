@@ -30,5 +30,20 @@
           // Assert
           $this->assertEquals($name, $result);
         }
+
+        function test_getId()
+        {
+          // Arrange
+          $name = "Maggie";
+          $enrollment_date = "2017-02-28";
+          $id = 1;
+          $test_student = new Student($name, $enrollment_date, $id);
+
+          // Act
+          $result = $test_student->getId();
+
+          // Assert
+          $this->assertEquals($id, $result);
+        }
     }
 ?>
