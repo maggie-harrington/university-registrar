@@ -80,6 +80,24 @@
           $this->assertEquals($course_name_update, $result);
         }
 
+        function test_setCourseNumber()
+        {
+          // Arrange
+          $course_name = "General Chemistry";
+          $course_number = "CH 201";
+          $id = 1;
+          $test_course = new Course($course_name, $course_number, $id);
+
+          $course_number_update = "CH 101";
+
+          // Act
+          $test_course->setCourseNumber($course_number_update);
+          $result = $test_course->getCourseNumber();
+
+          // Assert
+          $this->assertEquals($course_number_update, $result);
+        }
+
 
     }
 ?>
