@@ -31,5 +31,10 @@
         {
             $this->course_name = $new_course_name;
         }
+
+        function setCourseNumber($new_course_number)
+        {
+            $this->course_number = $new_course_number;
+        }
     }
 ?>
