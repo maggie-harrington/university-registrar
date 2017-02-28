@@ -57,5 +57,10 @@
             }
             return $all_courses_array;
         }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM courses");
+        }
     }
 ?>
