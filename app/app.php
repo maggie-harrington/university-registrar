@@ -31,7 +31,7 @@
 
     // add a student
     $app->post("/students/add", function() use ($app) {
-        $student = new Student($_POST['name']);
+        $student = new Student($_POST['name'], $_POST['enrollment_date']);
         $student->save();
 
         return $app['twig']->render('students.html.twig', array('students' => Student::getAll()));

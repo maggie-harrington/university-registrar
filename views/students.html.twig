@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>University Registrar</title>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='jumbotron'>
+                <h1>University Registrar<h1>
+            </div><br>
+
+            <h3>View and Edit Students</h3><br>
+
+            {% if students is not empty %}
+                {% for student in students %}
+                    <h4>{{ student.getName }} {{ student.getEnrollmentDate }}<h4>
+
+                    <form action='/students/{{ student.getId }}/edit' method='get'>
+                        <button type='submit' class='btn btn-xs btn-info'>Edit</button>
+                    </form>
+
+                    <form action='/students/{{ student.getId }}/delete' method='post'>
+                        <input name='_method' value='delete' hidden>
+                        <button type='submit' class='btn btn-xs btn-warning'>Delete</button>
+                    </form>
+                    <br>
+                {% endfor %}
+                <br><br>
+
+                <form action='/students/delete_all' method='post'>
+                    <input name='_method' value='delete' hidden>
+                    <button type='submit' class='btn btn-danger'>Delete All Student Records</button>
+                </form>
+            {% endif %}
+
+            <br><br>
+            <h4>Add a new student</h4>
+            <form action='/students/add' method='post'>
+                <div class='form-group'>
+                    <input required type='text' name='name' class='form-control'
+                        placeholder='Enter student full name'>
+                </div>
+
+                <div class='form-group'>
+                    <input required type='text' name='enrollment_date' class='form-control'
+                        placeholder='Enter enrollment date in the format YYYY-MM-DD'>
+                </div>
+
+                <button type='submit' class='btn btn-primary'>Submit</button>
+            </form><br><br>
+
+            <h4><a href='/'>Home</a></h4><br><br><br><br>
+
+            <footer>Created by <a href="https://github.com/maggie-harrington">Maggie Harrington</a></footer>
+
+        </div>
+    </body>
+</html>
