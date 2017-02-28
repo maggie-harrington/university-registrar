@@ -42,5 +42,20 @@
             $GLOBALS['DB']->exec("INSERT INTO students (name, enrollment_date) VALUES ('{$this->getName()}', '{$this->getEnrollmentDate()}');");
         }
 
+        static function getAll()
+        {
+            $returned_students = $GLOBALS['DB']->query("SELECT * FROM students");
+            $all_students_array = array();
+            foreach($returned_students as $student)
+            {
+                $name = $student['name'];
+                $enrollment_date = $student['enrollment_date'];
+                $id = $student['id'];
+                $new_student = new Student($name, $enrollment_date, $id);
+                array_push($all_students_array, $new_student);
+            }
+            return $all_students_array;
+        }
+
     }
 ?>
