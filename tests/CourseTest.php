@@ -6,6 +6,8 @@
     */
 
     require_once "src/Course.php";
+    require_once "src/Student.php";
+    
     $server = 'mysql:host=localhost:8889;dbname=university_registrar_test';
     $username = 'root';
     $password = 'root';

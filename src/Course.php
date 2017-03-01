@@ -88,5 +88,10 @@
             $this->setCourseNumber($new_course_number);
         }
 
+        function addStudent($student)
+        {
+            $GLOBALS['DB']->exec("INSERT INTO courses_students (course_id, student_id) VALUES ({$this->getId}, {$student->getId});");
+        }
+
     }
 ?>
