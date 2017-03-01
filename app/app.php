@@ -4,6 +4,9 @@
     require_once __DIR__."/../src/Student.php";
     require_once __DIR__."/../src/Course.php";
 
+    use Symfony\Component\Debug\Debug;
+    Debug::enable();
+
     $server = 'mysql:host=localhost:8889;dbname=university_registrar';
     $username = 'root';
     $password = 'root';
@@ -70,7 +73,7 @@
     });
 
     // start of courses routes:
-    
+
     // routes from index to courses page, displays all courses
     $app->get("/courses", function() use ($app) {
         return $app['twig']->render('courses.html.twig', array('courses' => Course::getAll()));
@@ -114,6 +117,24 @@
         $course->update($course_name, $course_number);
 
         return $app['twig']->render('courses.html.twig', array('courses' => Course::getAll()));
+    });
+
+    // start of routes using join table & join statements
+
+    // routes from courses page to enroll students page and displays all students enrolled in that course
+    $app->get("/courses/{id}/view_students", function($id) use ($app) {
+        $course = Course::find($id);
+
+        return $app['twig']->render('enroll_students.html.twig', array('course' => $course, 'students' => $course->getStudents()));
+    });
+
+    // add a student to a course, starts on enroll students page and stays on same page on submit to allow registrar to add multiple students to a course
+    $app->post("/courses/{id}/add_student", function($id) use ($app) {
+        $course = Course::find($_POST['course_id']);
+        $student = Student::find($_POST['student_id']);
+        $course->addStudent($student);
+
+        return $app['twig']->render('enroll_students.html.twig', array('course' => $course, 'students' => $course->getStudents()));
     });
 
     return $app;
