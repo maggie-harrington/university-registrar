@@ -115,5 +115,22 @@
             return $students;
         }
 
+        function getStudentsJoinStatement()
+        {
+            $returned_students = $GLOBALS['DB']->query("SELECT students.* FROM courses
+                JOIN courses_students ON (courses_students.category_id = courses.id)
+                JOIN students ON (students.id = courses_students.student_id)
+                WHERE courses.id = {$this->getId()};");
+            $students = array();
+            foreach($returned_students as $student) {
+                $name = $student['name'];
+                $enrollment_date = $student['enrollment_date'];
+                $id = $student['id'];
+                $new_student = new Student($name, $enrollment_date, $id);
+                array_push($students, $new_student);
+            }
+            return $students;
+        }
+
     }
 ?>
