@@ -93,5 +93,27 @@
             $GLOBALS['DB']->exec("INSERT INTO courses_students (course_id, student_id) VALUES ({$this->getId}, {$student->getId});");
         }
 
+        function getStudents()
+        {
+            $query = $GLOBALS['DB']->query("SELECT student_id FROM courses_students WHERE course_id = {$this->getId()};");
+
+            $students_ids = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            $students = array();
+            foreach ($students_ids as $id)
+            {
+                $student_id = $id['student_id'];
+                $result = $GLOBALS['DB']->query("SELECT * FROM students where id = {$student_id};");
+                $returned_student = $result->fetchAll(PDO::FETCH_ASSOC);
+
+                $name = $returned_student[0]['name'];
+                $enrollment_date = $returned_student[0]['enrollment_date'];
+                $id = $returned_student[0]['id'];
+                $new_student = new Student($name, $enrollment_date);
+                array_push($students, $new_student);
+            }
+            return $students;
+        }
+
     }
 ?>
