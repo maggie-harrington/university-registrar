@@ -15,7 +15,7 @@
 
             {% if students is not empty %}
                 {% for student in students %}
-                    <h4>{{ student.getName }} {{ student.getEnrollmentDate }}<h4>
+                    <h5>{{ student.getName }} | First enrolled: {{ student.getEnrollmentDate }} | ID: {{ student.getId }}<h5>
 
                     <form action='/students/{{ student.getId }}/edit' method='get'>
                         <button type='submit' class='btn btn-xs btn-info'>Edit</button>

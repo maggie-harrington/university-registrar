@@ -11,7 +11,7 @@
                 <h1>University Registrar<h1>
             </div><br>
 
-            <h4>Edit record for {{ student.getName }}, enrolled {{ student.getEnrollmentDate }}</h4><br>
+            <h4>Edit record for {{ student.getName }} | First enrolled: {{ student.getEnrollmentDate }} | ID: {{ student.getId }}</h4><br>
 
             <form action='/students/{{ student.getId }}/submit_edit' method='post'>
                 <div class='form-group'>

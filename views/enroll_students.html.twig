@@ -14,7 +14,7 @@
             <h3>Students enrolled in {{ course.getCourseName }}: {{ course.getCourseNumber}}<h3><br>
 
                 {% for student in enrolled_students %}
-                    <h5>{{ student.getName }} First enrolled: {{ student.getEnrollmentDate }} ID: {{ student.getId }}<h5>
+                    <h5>{{ student.getName }} | First enrolled: {{ student.getEnrollmentDate }} | ID: {{ student.getId }}<h5>
                 {% endfor %}
                 <br><br>
 
