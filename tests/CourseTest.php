@@ -271,6 +271,33 @@
             $this->assertEquals([$test_student, $test_student2], $result);
         }
 
+        function test_getStudentsJoinStatement()
+        {
+            // Arrange
+            $course_name = "General Chemistry";
+            $course_number = "CH 201";
+            $test_course = new Course($course_name, $course_number);
+            $test_course->save();
+
+            $name = "Maggie";
+            $enrollment_date = "2017-02-28";
+            $test_student = new Student($name, $enrollment_date);
+            $test_student->save();
+            $test_course->addStudent($test_student);
+
+            $name2 = "Daisy";
+            $enrollment_date2 = "2017-03-01";
+            $test_student2 = new Student($name2, $enrollment_date2);
+            $test_student2->save();
+            $test_course->addStudent($test_student2);
+
+            // Act
+            $result = $test_course->getStudentsJoinStatement();
+
+            // Assert
+            $this->assertEquals([$test_student, $test_student2], $result);
+        }
+
 
     }
 ?>
