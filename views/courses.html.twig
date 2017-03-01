@@ -14,8 +14,10 @@
             <h3>View and Edit Courses</h3><br>
 
             {% if courses is not empty %}
+                <h4>Click the course to view enrolled students</h4><br>
                 {% for course in courses %}
-                    <h4>{{ course.getCourseName }}: {{ course.getCourseNumber }}<h4>
+                    <h4><a href='/courses/{{ course.getId }}/view_students'>
+                        {{ course.getCourseName }}: {{ course.getCourseNumber }}</a><h4>
 
                     <form action='/courses/{{ course.getId }}/edit' method='get'>
                         <button type='submit' class='btn btn-xs btn-info'>Edit</button>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <title>University Registrar</title>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='jumbotron'>
+                <h1>University Registrar<h1>
+            </div><br>
+
+            <h3>Students enrolled in {{ course.getCourseName }}: {{ course.getCourseNumber}}<h3><br>
+
+                {% for student in enrolled_students %}
+                    <h5>{{ student.getName }} First enrolled: {{ student.getEnrollmentDate }} ID: {{ student.getId }}<h5>
+                {% endfor %}
+                <br><br>
+
+            <h4>Enroll a student</h4><br>
+
+            <form action='/courses/{{ course.getId }}/add_student' method='post'>
+                <input id='course_id' name='course_id' type='hidden' value='{{ course.getId }}'>
+
+                <div class='form-group'>
+                    <label for='student_id'>Select a student to enroll</label>
+                    <select class='' name='student_id' type='text'>
+                        {% for student in all_students %}
+                            <option value="{{ student.getId }}"> {{ student.getName }} {{ student.getEnrollmentDate }} ID: {{ student.getId }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type='submit' class='btn btn-primary'>Add student</button>
+            </form><br><br>
+
+            <h4><a href='/courses'>Back to course records</a></h4>
+
+            <h4><a href='/'>Home</a></h4><br><br><br><br>
+
+            <footer>Created by <a href="https://github.com/maggie-harrington">Maggie Harrington</a></footer>
+
+        </div>
+    </body>
+</html>

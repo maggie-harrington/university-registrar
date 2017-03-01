@@ -125,16 +125,17 @@
     $app->get("/courses/{id}/view_students", function($id) use ($app) {
         $course = Course::find($id);
 
-        return $app['twig']->render('enroll_students.html.twig', array('course' => $course, 'students' => $course->getStudents()));
+        return $app['twig']->render('enroll_students.html.twig', array('course' => $course, 'all_students' => Student::getAll(), 'enrolled_students' => $course->getStudents()));
     });
 
     // add a student to a course, starts on enroll students page and stays on same page on submit to allow registrar to add multiple students to a course
     $app->post("/courses/{id}/add_student", function($id) use ($app) {
-        $course = Course::find($_POST['course_id']);
+        $course = Course::find($id);
+        // $course = Course::find($_POST['course_id']);
         $student = Student::find($_POST['student_id']);
         $course->addStudent($student);
 
-        return $app['twig']->render('enroll_students.html.twig', array('course' => $course, 'students' => $course->getStudents()));
+        return $app['twig']->render('enroll_students.html.twig', array('course' => $course, 'all_students' => Student::getAll(), 'enrolled_students' => $course->getStudents()));
     });
 
     return $app;
