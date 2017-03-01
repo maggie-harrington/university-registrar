@@ -7,7 +7,7 @@
 
     require_once "src/Course.php";
     require_once "src/Student.php";
-    
+
     $server = 'mysql:host=localhost:8889;dbname=university_registrar_test';
     $username = 'root';
     $password = 'root';
@@ -238,7 +238,7 @@
 
             // Act
             $test_course->addStudent($test_student);
-            $result = Course::getStudents();
+            $result = $test_course->getStudents();
 
             // Assert
             $this->assertEquals([$test_student], $result);
@@ -265,7 +265,7 @@
             $test_course->addStudent($test_student2);
 
             // Act
-            $result = Course::getStudents();
+            $result = $test_course->getStudents();
 
             // Assert
             $this->assertEquals([$test_student, $test_student2], $result);

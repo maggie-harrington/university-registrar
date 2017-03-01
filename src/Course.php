@@ -90,7 +90,7 @@
 
         function addStudent($student)
         {
-            $GLOBALS['DB']->exec("INSERT INTO courses_students (course_id, student_id) VALUES ({$this->getId}, {$student->getId});");
+            $GLOBALS['DB']->exec("INSERT INTO courses_students (course_id, student_id) VALUES ({$this->getId()}, {$student->getId()});");
         }
 
         function getStudents()
@@ -109,7 +109,7 @@
                 $name = $returned_student[0]['name'];
                 $enrollment_date = $returned_student[0]['enrollment_date'];
                 $id = $returned_student[0]['id'];
-                $new_student = new Student($name, $enrollment_date);
+                $new_student = new Student($name, $enrollment_date, $id);
                 array_push($students, $new_student);
             }
             return $students;
